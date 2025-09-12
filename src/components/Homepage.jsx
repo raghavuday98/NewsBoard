@@ -1,12 +1,14 @@
-import React from 'react'
-import Navbar from './navbar'
+import React from "react";
+import Navbar from "./navbar";
+import Topics from "./Topics";
 
 const Homepage = () => {
   return (
     <>
-    <Navbar/>
+      <Navbar />
+      <Topics />
     </>
-  )
-}
+  );
+};
 
-export default Homepage
+export default Homepage;
