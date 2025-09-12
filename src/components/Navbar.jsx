@@ -14,16 +14,16 @@ function Navbar() {
           <input className="outline-0 w-75 ml-2" type="text" placeholder="Search for news..." />
         </div>
         <div className="w-90 flex items-center justify-around font-['Newsreader'] text-base font-medium">
-          <a href="" className="hover:text-blue-600 transition">
+          <a href="" className="hover:text-[#3dd1e5] transition">
             Home
           </a>
-          <a href="" className="hover:text-blue-600 transition">
+          <a href="" className="hover:text-[#3dd1e5] transition">
             About
           </a>
-          <a href="" className="hover:text-blue-600 transition">
+          <a href="" className="hover:text-[#3dd1e5] transition">
             Contact
           </a>
-          <a href="" className="hover:text-blue-600 transition text-2xl">
+          <a href="" className="hover:text-[#3dd1e5] transition text-2xl">
             <FaRegUserCircle />
           </a>
         </div>
