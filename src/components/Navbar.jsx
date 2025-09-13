@@ -1,31 +1,108 @@
-import { ImSearch } from "react-icons/im";
-import { FaRegUserCircle } from "react-icons/fa";
-import logo from "../assets/logo.png";
+import { getData } from "./Api";
+import Feed from "./Feed";
+// Icon components (using inline SVG for portability)
+const SearchIcon = ({ className }) => (
+  <svg
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <circle cx="11" cy="11" r="8"></circle>
+    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+);
 
-function Navbar() {
+const UserIcon = ({ className }) => (
+  <svg
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+    <circle cx="12" cy="7" r="4"></circle>
+  </svg>
+);
+
+const Logo = () => (
+  <div className="flex items-center space-x-2">
+    <div className="bg-blue-600 p-2 rounded-md">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="white"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+      </svg>
+    </div>
+    <span className="text-2xl font-bold text-slate-800">NewsBoard</span>
+  </div>
+);
+
+function Navbar({ onSearch }) {
   return (
-    <div>
-      <div className="w-full h-20 flex items-center justify-between border-b-1 border-zinc-300 bg-zinc-100 z-50">
-        <div className="w-40 h-11 ml-5">
-          <img src={logo} alt="Logo" className="w-full h-full object-contain" />
-        </div>
-        <div className="w-80 h-10 flex items-center justify-between p-5 border-1 border-zinc-400  bg-white rounded-full hover:shadow-sm">
-         <div className="text-xl text-zinc-400  bg-white"><ImSearch /></div>
-          <input className="outline-0 w-75 ml-2" type="text" placeholder="Search for news..." />
-        </div>
-        <div className="w-90 flex items-center justify-around font-['Newsreader'] text-base font-medium">
-          <a href="" className="hover:text-[#3dd1e5] transition">
-            Home
-          </a>
-          <a href="" className="hover:text-[#3dd1e5] transition">
-            About
-          </a>
-          <a href="" className="hover:text-[#3dd1e5] transition">
-            Contact
-          </a>
-          <a href="" className="hover:text-[#3dd1e5] transition text-2xl">
-            <FaRegUserCircle />
-          </a>
+    <div className="bg-white/80 backdrop-blur-lg sticky top-0 z-10 border-b border-slate-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <Logo />
+          <div className="hidden md:flex items-center space-x-8">
+            <a
+              href="#"
+              className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
+            >
+              Home
+            </a>
+            <a
+              href="#"
+              className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
+            >
+              About
+            </a>
+            <a
+              href="#"
+              className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
+            >
+              Contact
+            </a>
+          </div>
+          <div className="flex items-center space-x-4">
+            <div className="relative">
+              <input
+                className="w-40 sm:w-56 pl-10 pr-4 py-2 border border-slate-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                type="text"
+                placeholder="Search for news..."
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    getData();
+                  }
+                }}
+              />
+              <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+            </div>
+            <button className="p-2 rounded-full hover:bg-slate-100 transition-colors">
+              <UserIcon className="w-6 h-6 text-slate-600" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
