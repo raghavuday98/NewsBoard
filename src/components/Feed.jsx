@@ -1,7 +1,6 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { getData } from "./Api";
-
+import Card from "./Card";
 
 function Feed({ searchQuery }) {
   const [articles, setArticles] = useState([]);
@@ -12,8 +11,11 @@ function Feed({ searchQuery }) {
     }
   }, [searchQuery]);
 
-  getData()
-  return <div className="w-full bg-zinc-100"></div>;
+  return (
+    <div className="w-full bg-zinc-100">
+      <Card data={articles} />
+    </div>
+  );
 }
 
 export default Feed;

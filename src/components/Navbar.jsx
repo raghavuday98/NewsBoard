@@ -60,6 +60,7 @@ const Logo = () => (
   </div>
 );
 
+
 function Navbar({ search, setSearch }) {
   return (
     <div className="bg-white/80 backdrop-blur-lg sticky top-0 z-10 border-b border-slate-200">
@@ -95,7 +96,7 @@ function Navbar({ search, setSearch }) {
                 placeholder="Search for news..."
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    getData()
+                    
                   }
                 }}  
               />
