@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { getData } from "./Api";
 
+
 function Feed({ searchQuery }) {
   const [articles, setArticles] = useState([]);
 
@@ -11,6 +12,7 @@ function Feed({ searchQuery }) {
     }
   }, [searchQuery]);
 
+  getData()
   return <div className="w-full bg-zinc-100"></div>;
 }
 
