@@ -91,7 +91,6 @@ function Navbar({ search, setSearch }) {
               <input
                 className="w-40 sm:w-56 pl-10 pr-4 py-2 border border-slate-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 type="text"
-                value={search}
                 onChange={e => setSearch(e.target.value)}
                 placeholder="Search for news..."
                 onKeyDown={(e) => {
