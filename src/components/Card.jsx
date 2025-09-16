@@ -31,7 +31,7 @@ function Card({ data }) {
                 <p className="text-sm text-slate-600 line-clamp-3">
                   {curItem.description}
                 </p>
-                <div className="mt-2 text-xs text-slate-500 flex items-center gap-2">
+                <div className="mt-2 text-xs text-slate-500 flex items-center gap-2"  >
                   <span className="font-medium">By {curItem.author}</span>
                   <span className="mx-1">&middot;</span>
                   <span>{curItem.publishedAt}</span>

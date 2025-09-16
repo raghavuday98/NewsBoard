@@ -12,19 +12,19 @@ function Topics( {setSearch} ) {
           <div onClick={() => setSearch("Technology", "Politics", "Business", "Health", "Sports")}  className="px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 bg-white text-slate-600 hover:bg-blue-100 hover:text-blue-700">
             All
           </div>
-          <div onClick={() => setSearch("Technology")} className="px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 bg-white text-slate-600 hover:bg-blue-100 hover:text-blue-700">
+          <div onClick={() => setSearch("Indian Technology")} className="px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 bg-white text-slate-600 hover:bg-blue-100 hover:text-blue-700">
             Technology
           </div>
-          <div onClick={() => setSearch("Politics")} className="px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 bg-white text-slate-600 hover:bg-blue-100 hover:text-blue-700">
+          <div onClick={() => setSearch("Indian Politics")} className="px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 bg-white text-slate-600 hover:bg-blue-100 hover:text-blue-700">
             Politics
           </div>
-          <div onClick={() => setSearch("Business")} className="px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 bg-white text-slate-600 hover:bg-blue-100 hover:text-blue-700">
+          <div onClick={() => setSearch("Indian Business")} className="px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 bg-white text-slate-600 hover:bg-blue-100 hover:text-blue-700">
             Business
           </div>
-          <div onClick={() => setSearch("Health")} className="px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 bg-white text-slate-600 hover:bg-blue-100 hover:text-blue-700">
+          <div onClick={() => setSearch("Indian Health")} className="px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 bg-white text-slate-600 hover:bg-blue-100 hover:text-blue-700">
             Health
           </div>
-          <div onClick={() => setSearch("Sports")} className="px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 bg-white text-slate-600 hover:bg-blue-100 hover:text-blue-700">
+          <div onClick={() => setSearch("Indian Sports")} className="px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 bg-white text-slate-600 hover:bg-blue-100 hover:text-blue-700">
             Sports
           </div>
         </div>
