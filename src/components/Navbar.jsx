@@ -96,9 +96,9 @@ function Navbar({ search, setSearch }) {
                 placeholder="Search for news..."
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    
+
                   }
-                }}  
+                }}
               />
               <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
             </div>
