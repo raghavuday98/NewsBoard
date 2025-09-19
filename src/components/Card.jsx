@@ -1,6 +1,3 @@
-import React from "react";
-import Feed from "./Feed";
-
 function Card({ data }) {
   if (!Array.isArray(data) || data.length === 0) {
     return <div>No news found.</div>;
