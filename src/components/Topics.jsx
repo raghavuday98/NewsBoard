@@ -1,6 +1,3 @@
-import React from "react";
-import Homepage from "./Homepage";
-
 function Topics({ setSearch }) {
   return (
     <div className="w-full mt-10 ">
