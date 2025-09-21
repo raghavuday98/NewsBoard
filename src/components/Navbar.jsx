@@ -1,6 +1,3 @@
-import { getData } from "./Api";
-import Feed from "./Feed";
-import Homepage from "./Homepage";
 // Icon components (using inline SVG for portability)
 const SearchIcon = ({ className }) => (
   <svg
