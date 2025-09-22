@@ -1,4 +1,5 @@
 function Topics({ setSearch }) {
+  
   return (
     <div className="w-full mt-10 ">
       <div className="flex items-center justify-around">
