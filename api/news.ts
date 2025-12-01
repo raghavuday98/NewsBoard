@@ -10,6 +10,7 @@ export default async function handler(req, res) {
     'Access-Control-Allow-Headers',
     'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
   );
+  res.setHeader('Content-Type', 'application/json');
 
   if (req.method === 'OPTIONS') {
     res.status(200).end();
@@ -25,15 +26,25 @@ export default async function handler(req, res) {
   try {
     console.log(`[Proxy] Fetching news for: "${query}"`);
     const response = await fetch(
-      `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&apiKey=${API_KEY}`
+      `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&apiKey=${API_KEY}`,
+      {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+        },
+      }
     );
 
     const data = await response.json();
     console.log(`[Proxy] Response status: ${response.status}, Articles: ${data.articles?.length || 0}`);
 
+    if (!response.ok) {
+      return res.status(response.status).json({ error: `NewsAPI Error: ${response.status}` });
+    }
+
     res.status(200).json(data);
   } catch (error) {
     console.error('[Proxy] Error:', error);
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ error: error.message || 'Internal server error' });
   }
 }

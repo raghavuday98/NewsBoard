@@ -4,11 +4,27 @@ export const getData = async (query) => {
   try {
     console.log(`[API] Fetching news for query: "${query}"`);
     
-    // Direct call to NewsAPI (bypass proxy for now)
-    const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&apiKey=${API_KEY}`;
-    console.log(`[API] URL: ${url}`);
+    // Use Vercel proxy endpoint in production, direct API in development
+    const isDev = !window.location.hostname.includes('vercel.app');
+    let url;
+    
+    if (isDev) {
+      // Development: direct call to NewsAPI
+      url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&apiKey=${API_KEY}`;
+    } else {
+      // Production: use Vercel serverless proxy
+      url = `/api/news?query=${encodeURIComponent(query)}`;
+    }
+    
+    console.log(`[API] URL: ${url}, isDev: ${isDev}`);
 
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+      },
+    });
+    
     console.log(`[API] Response status: ${response.status}`);
 
     if (!response.ok) {
