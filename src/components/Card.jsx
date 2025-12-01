@@ -1,6 +1,23 @@
-function Card({ data }) {
+import Loader from "./Loader";
+
+function Card({ data, loading, error }) {
+  if (loading) {
+    return <Loader />;
+  }
+
+  if (error) {
+    return (
+      <div className="w-full flex items-center justify-center py-16">
+        <div className="text-center">
+          <p className="text-red-600 font-semibold text-lg">⚠️ Error</p>
+          <p className="text-slate-600 mt-2">{error}</p>
+        </div>
+      </div>
+    );
+  }
+
   if (!Array.isArray(data) || data.length === 0) {
-    return <div>No news found.</div>;
+    return null;
   }
 
   return (

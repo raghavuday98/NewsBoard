@@ -1,6 +1,7 @@
+import { NavLink } from "react-router-dom";
+
 // Icon components (using inline SVG for portability)
 const SearchIcon = ({ className }) => (
-  
   <svg
     className={className}
     xmlns="http://www.w3.org/2000/svg"
@@ -58,43 +59,36 @@ const Logo = () => (
   </div>
 );
 
-
 function Navbar({ search, setSearch }) {
+  const linkClass = (isActive) =>
+    (isActive ? "text-blue-600" : "text-slate-600") +
+    " text-sm font-medium hover:text-blue-600 transition-colors";
+
   return (
     <div className="bg-white/80 backdrop-blur-lg sticky top-0 z-10 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Logo />
           <div className="hidden md:flex items-center space-x-8">
-            <a
-              href="#"
-              className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
-            >
+            <NavLink to="/" end className={({ isActive }) => linkClass(isActive)}>
               Home
-            </a>
-            <a
-              href="#"
-              className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
-            >
+            </NavLink>
+            <NavLink to="/about" className={({ isActive }) => linkClass(isActive)}>
               About
-            </a>
-            <a
-              href="#"
-              className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
-            >
+            </NavLink>
+            <NavLink to="/contact" className={({ isActive }) => linkClass(isActive)}>
               Contact
-            </a>
+            </NavLink>
           </div>
           <div className="flex items-center space-x-4">
             <div className="relative">
               <input
                 className="w-40 sm:w-56 pl-10 pr-4 py-2 border border-slate-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 type="text"
-                onChange={e => setSearch(e.target.value)}
+                onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search for news..."
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-
                   }
                 }}
               />
